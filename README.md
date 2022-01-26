@@ -41,3 +41,10 @@ Only One! what ever happen only one time render
 ### cleanUp function -> 주로 사용하지 않음(sometimes use)
 
 component가 사라질 때(destory될 때) 무언가 해줄때 사용
+
+```js
+setToDos((currentArray) => [toDo, ...currentArray]); // ...은 배열을 뿌려준다
+```
+
+ex) new value 와 crrentArray를 합쳐주고 싶다. but [new value, currentArray] => reseult is [value, [currentArray]] 배열안에 배열이 속해 있는 꼴이 된다.
+So [value, ...currentArray] -> result is [value, currentv1, currentv2] 기존 배열에 새로운 value를 합쳐 new array가 생기게 된다.
