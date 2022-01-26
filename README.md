@@ -1,5 +1,7 @@
 # Create-React-App
 
+javascript를 사용할 땐 꼭 {}를 잊지 말자.
+
 리액트 어플리케이션을 만드는 라이브러리
 
 create-react-app을 사용하면,
@@ -27,3 +29,15 @@ create-react-app이 우리에게 주는 도움
 css Moudule -> 전역적인 css가 아닌 개별의 css를 붙힐 수 있는 모듈
 
 ## useEffect
+
+문제점 : API나 state 변경으로 반복적인 rerender
+해결 방안 -> useEffect(two argument)
+useEffect는 한번만 rendering이 된다. 즉 한번만 불러오면 되는 API한테쓰면 good
+Only One! what ever happen only one time render
+누군가 타이핑으로 인해 계속 반복적인 렌더링이 된다면 hell
+
+특정한 기능만 실행하는 법
+
+### cleanUp function -> 주로 사용하지 않음(sometimes use)
+
+component가 사라질 때(destory될 때) 무언가 해줄때 사용
