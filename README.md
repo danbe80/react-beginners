@@ -48,3 +48,58 @@ setToDos((currentArray) => [toDo, ...currentArray]); // ...은 배열을 뿌려�
 
 ex) new value 와 crrentArray를 합쳐주고 싶다. but [new value, currentArray] => reseult is [value, [currentArray]] 배열안에 배열이 속해 있는 꼴이 된다.
 So [value, ...currentArray] -> result is [value, currentv1, currentv2] 기존 배열에 새로운 value를 합쳐 new array가 생기게 된다.
+
+< code challenge >
+
+1. Create an Input -> Enter how much money you hove.
+2. After enter the money, Show only the Coins you can buy
+3. If the Input is empty, Show all coins
+4. If you select a coin, show me the number of coins you can purchase at the bottom.
+
+5. Create an Input -> Enter how much money you hove.
+
+```js
+  {loading? <stroung>Loading...</stroung> :
+    <div>
+      <h2>How much money do you have?</h2>
+      <input
+        type="number"
+        value={money}
+        placeholder="Money"
+        onChange={onChange}
+      ></input>
+      {
+        money === null ? null : <div>You have {money} USD</div>
+      }
+```
+
+If 'loading' is True, show 'Loading...'
+However, if 'loading' is False, the input is shown because loading is completed. (API response Done)
+'loading'이 ture이면, 'Loading...'을 보여주고,
+false면, 로딩이 끝나서(API응답완료) 입력창과 선택창을 보여주면 된다.
+
+2. After enter the money, Show only the Coins you can buy
+3. If the Input is empty, Show all coins
+
+```js
+<select onChange={onSelect} value={choose}>
+  {coins.map((coin, index) => (
+    <option key={index} value={coin.quotes.USD.price}>
+      {coin.name} ({coin.symbol}) : {coin.quotes.USD.price.toFixed(3)}USD
+      {money !== 0
+        ? ` / you buy : ${Math.floor(money / coin.quotes.USD.price)}`
+        : null}
+    </option>
+  ))}
+</select>
+```
+
+4. If you select a coin, show me the number of coins you can purchase at the bottom.
+
+```js
+{
+  choose === "" ? null : (
+    <h3>You can purchase this coin: {Math.floor(money / choose)} </h3>
+  );
+}
+```
