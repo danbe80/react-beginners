@@ -103,3 +103,18 @@ false면, 로딩이 끝나서(API응답완료) 입력창과 선택창을 보여�
   );
 }
 ```
+
+## Movie App
+
+[Movie API](https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year)
+
+### React-Router
+
+router에는 두가지 종류가 있다 1) HashRouter 2) BrowserRouter
+<Switch>는 Route를 찾는 역활 -> Route를 찾으면 Components를 렌더링함 => The using reason: 한 번에 하나의 Route만 렌더링 하기 위해서
+<Route>는 URL을 의미 ex) loacllhost:3000/**_movies/123_**
+path="url"는 정해진 주소에서 페이지를 보여주기 위한 path setting
+<Router>는 안에 path로 인해 user에게 보여지는 페이지를 담는 공간이다.
+Router에서는 본인이 원하면 두개의 페이지를 렌더링할 수도 있음
+
+<Link> 브라우저의 새로 고침 없이 유저를 다른 페이지로 이동시켜주는 컴포넌트
