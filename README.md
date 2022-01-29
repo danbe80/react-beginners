@@ -118,3 +118,45 @@ path="url"는 정해진 주소에서 페이지를 보여주기 위한 path setti
 Router에서는 본인이 원하면 두개의 페이지를 렌더링할 수도 있음
 
 <Link> 브라우저의 새로 고침 없이 유저를 다른 페이지로 이동시켜주는 컴포넌트
+
+다이나믹(동적) url을 지원 -> 동적은 url에 변수를 넣을 수 있다는 것을 의미
+ex)
+movie/id -> 그냥 text의 의미지만
+movie/:id -> 이건 변수로 넣겠다는 의미 즉 id가 아닌 id에 들어간 값이 넣어짐.
+
+props는 전부 object
+
+How can we know what id is here? => url에 요청할 수 있다. (요청시 id값을 알아야 함)
+
+### useParams
+
+url의 변경되는 변수값을 알 수 있게 도와주는 기능
+
+### gh-pages
+
+npm i gh-pages
+-> 결과물을 github pages에 업로드 할 수 있게 해주는 패키지
+github pages는 github에서 제공하는 무료 서비스
+
+npm run build => 실행 후 build라는 파일이 생성
+package.json에 있는 build라는 script를 실행하면 우리 웹사이트의 production ready code를 생성
+production ready? => code가 압축되고 모든게 최적화 된다는 의미
+
+build 새성 후
+package.json에 마지막에
+
+```
+  },
+    "homepage": "https://[github name]@github.io/[github repository]
+```
+
+then
+
+```scripts
+  "scripts": {
+    ...
+    "deploy": "gh-pages -d bulid", // gh-pages를 실행시키고 "build"라는 디렉토리를 가져감
+    "predeploy": "npm run build"
+  }
+
+```
